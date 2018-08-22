@@ -1,0 +1,12 @@
+  imports:
+  - { resource: application.yml }
+
+  Database:
+    host: localhost
+    user: postgres
+    password: postgres
+
+  googleApi:
+    geoCoding:
+      url: https://maps.googleapis.com/maps/api/geocode/json?address=
+    key: AIzaSyCAXlFSrxi2e8j8wfwFr5Jj-o0a2Kug5x8
