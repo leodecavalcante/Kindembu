@@ -9,4 +9,26 @@
 class MapaService
 {
 
+    public function populateLatLng() {
+        $mapas = MapaRepository::findMapaByLatitudeAndLongitude(null,null);
+
+        $quant = 0;
+        foreach($mapas as $mapa){
+            if ($mapa->getEnderecoMapaPlantaNovo() != null){
+                $geoCodingResponse = GoogleApiService::getGeoCode($mapa->getEnderecoMapaPlantaNovo());
+
+                if ($geoCodingResponse->getStatus() == "OK"){
+                    $lat = $geoCodingResponse->getResults()->get(0)->getLocation()->getLat();
+                    $mapas->setLatitude($lat);
+                    $lng = $geoCodingResponse->getResults()->get(0)->getLocation()->getLng();
+                    $mapas->setLongitude($lng);
+
+                    $quant++;
+                    MapaRepository::save($mapa);
+                }
+            }
+        }
+    }
+
+
 }

@@ -8,6 +8,9 @@
 
 class Mapa
 {
+    private $conn;
+    private $nomeTabela;
+
     private $cod_mapa_planta; //String
     private $reg_adm; //String
     private $org_set_origem; //String
@@ -91,46 +94,9 @@ class Mapa
      * @param $sel
      */
 
-    public function __construct($cod_mapa_planta, $reg_adm, $org_set_origem, $num_mapoteca, $gaveta_mapoteca, $prancha_mapoteca, $titulo_mapa_planta, $endereco_mapa_planta_antigo, $bairro_mapa_planta_antigo, $municipio_uf_antigo, $cep_mapa_planta_antigo, $endereco_mapa_planta_novo, $bairro_mapa_planta_novo, $municipio_uf_novo, $cep_mapa_planta_novo, $tipologia_mapa_planta, $trecho_tipologia, $municipio_tipologia, $num_processo_tipologia, $supervisor_origem_tipologia, $org_emissor_origem_tipologia, $dimensao_imovel_area_total_tipologia, $confrontamento_tipologia, $autor_tipologia, $original_copia_tipologia, $data_tipologia, $escala, $num_folha, $descritores, $planta, $armario, $tela, $tubo, $quant, $observacao, $data_cadastramento, $cadastrador, $sel)
+    public function __construct($db)
     {
-        $this->cod_mapa_planta = $cod_mapa_planta;
-        $this->reg_adm = $reg_adm;
-        $this->org_set_origem = $org_set_origem;
-        $this->num_mapoteca = $num_mapoteca;
-        $this->gaveta_mapoteca = $gaveta_mapoteca;
-        $this->prancha_mapoteca = $prancha_mapoteca;
-        $this->titulo_mapa_planta = $titulo_mapa_planta;
-        $this->endereco_mapa_planta_antigo = $endereco_mapa_planta_antigo;
-        $this->bairro_mapa_planta_antigo = $bairro_mapa_planta_antigo;
-        $this->municipio_uf_antigo = $municipio_uf_antigo;
-        $this->cep_mapa_planta_antigo = $cep_mapa_planta_antigo;
-        $this->endereco_mapa_planta_novo = $endereco_mapa_planta_novo;
-        $this->bairro_mapa_planta_novo = $bairro_mapa_planta_novo;
-        $this->municipio_uf_novo = $municipio_uf_novo;
-        $this->cep_mapa_planta_novo = $cep_mapa_planta_novo;
-        $this->tipologia_mapa_planta = $tipologia_mapa_planta;
-        $this->trecho_tipologia = $trecho_tipologia;
-        $this->municipio_tipologia = $municipio_tipologia;
-        $this->num_processo_tipologia = $num_processo_tipologia;
-        $this->supervisor_origem_tipologia = $supervisor_origem_tipologia;
-        $this->org_emissor_origem_tipologia = $org_emissor_origem_tipologia;
-        $this->dimensao_imovel_area_total_tipologia = $dimensao_imovel_area_total_tipologia;
-        $this->confrontamento_tipologia = $confrontamento_tipologia;
-        $this->autor_tipologia = $autor_tipologia;
-        $this->original_copia_tipologia = $original_copia_tipologia;
-        $this->data_tipologia = $data_tipologia;
-        $this->escala = $escala;
-        $this->num_folha = $num_folha;
-        $this->descritores = $descritores;
-        $this->planta = $planta;
-        $this->armario = $armario;
-        $this->tela = $tela;
-        $this->tubo = $tubo;
-        $this->quant = $quant;
-        $this->observacao = $observacao;
-        $this->data_cadastramento = $data_cadastramento;
-        $this->cadastrador = $cadastrador;
-        $this->sel = $sel;
+        $this->conn = $db;
     }
 
     /**
